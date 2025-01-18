@@ -1,0 +1,277 @@
+'use client'
+
+import { motion } from "framer-motion"
+import { Instagram, Linkedin, X } from 'lucide-react'
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { 
+  Accordion, 
+  AccordionContent, 
+  AccordionItem, 
+  AccordionTrigger 
+} from "@/components/ui/accordion"
+
+export default function Home() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black to-blue-950">
+      <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-4 flex items-center">
+          <div className="flex items-center">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/...-Pk0hh9GcY5VTtKxtoV4DGx5bSlvY8S.png"
+              alt="Fluentaleads Logo"
+              width={80}
+              height={80}
+              className="w-20 h-20"
+            />
+          </div>
+        </div>
+      </header>
+
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="container mx-auto px-4 py-24 min-h-[90vh] flex items-center">
+          <motion.div 
+            className="max-w-3xl"
+            initial="initial"
+            animate="animate"
+            variants={fadeIn}
+          >
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Agency growth partner
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8">
+              We help agencies scale by delivering high-quality leads through targeted email marketing
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-blue-600 hover:bg-blue-700"
+              onClick={() => {
+                const element = document.getElementById('discovery-call')
+                element?.scrollIntoView({ behavior: 'smooth' })
+              }}
+            >
+              Book a call
+            </Button>
+          </motion.div>
+        </section>
+
+        {/* About & Services Section */}
+        <section className="bg-black/40 py-24">
+          <motion.div 
+            className="container mx-auto px-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-white mb-6">About & our services</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mb-16">
+              Transform your cold email outreach into a lead-converting sales machine. 
+              With our done-for-you services, you'll generate warm leads for you faster than ever.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <motion.div 
+                className="bg-blue-950/50 p-6 rounded-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">Appointment setting</h3>
+                <p className="text-gray-300">
+                  We find qualified B2B leads and set up meetings for you to close. 
+                  Tell us your value proposition and target audience, and we'll do the rest.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-blue-950/50 p-6 rounded-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">Prospect research</h3>
+                <p className="text-gray-300">
+                  Research is more complex people think, especially when sourcing accurate, 
+                  up-to-date contact info for decision-makers. We use top-tier research tools 
+                  that are precise and reliable.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-blue-950/50 p-6 rounded-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">Anti spam - services</h3>
+                <p className="text-gray-300">
+                  80% of emails are marked as spam. Fluentaleads ensures yours reach the other 20% 
+                  we ensure this by using spam filters and following strict guidelines.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-white mb-12">FAQ's</h2>
+            <Accordion type="single" collapsible className="max-w-3xl">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-white">
+                  How do you guarantee results for your clients?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  We prioritize data-driven strategies, testing, and continuous optimization to deliver 
+                  exceptional results. Success is never completely guaranteed, but we minimize risks by 
+                  tailoring campaigns to your audience, leveraging proven methods, and adapting in 
+                  real-time to achieve measurable outcomes aligned with your goals.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-white">
+                  What happens if the strategy doesn't meet your expectations?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  If the strategy doesn't deliver the expected results, we identify the root cause and 
+                  take action on it. This includes analyzing campaign performance, reviewing messaging, 
+                  and re-evaluating targeting criteria. We'll collaborate with you to pivot the strategy, 
+                  try new approaches and make improvements to achieve better results.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-white">
+                  What is appointment setting, and how can it grow my business?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  Appointment setting is the process of scheduling qualified meetings between your sales 
+                  team and potential clients. It ensures you only speak with prospects who are genuinely 
+                  interested in your product or service, saving time and increasing your chances of 
+                  closing deals. We handle the outreach and sorting, so you can focus on building 
+                  relationships and growing revenue.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-white">
+                  How do you handle challenges in cold email outreach?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  Challenges like low response rates, deliverability issues, or unengaged prospects are 
+                  addressed with a proactive approach. We use advanced tools to optimize email 
+                  deliverability, create compelling personalized content, and run A/B tests to improve 
+                  performance. Our team constantly monitors campaigns and adapts strategies to overcome 
+                  hurdles effectively.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="text-white">
+                  What does your process look like from start to finish?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  <ol className="list-decimal pl-4 space-y-2">
+                    <li>Discovery: We begin by understanding your goals, target audience, and unique value proposition.</li>
+                    <li>Strategy Development: We craft a tailored outreach plan, including messaging, segmentation, and scheduling.</li>
+                    <li>Implementation: Campaigns are launched using tested tools and optimized for deliverability.</li>
+                    <li>Monitoring and Optimization: We track performance metrics, analyze data, and adjust the strategy for continuous improvement.</li>
+                    <li>Reporting: Regular updates and reports keep you informed about the results and progress.</li>
+                  </ol>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6">
+                <AccordionTrigger className="text-white">
+                  Why choose us?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-300">
+                  As an agency from Finland, we take a personal and hands-on approach to every project. 
+                  We treat your business with the same care and dedication as we would our own, ensuring 
+                  every decision is made with your success in mind. Unlike larger agencies, there's no 
+                  miscommunication or bouncing between team members, you'll always work directly with 
+                  one dedicated person who fully understands your goals. This transparent and streamlined 
+                  approach allows us to deliver tailored strategies and results that truly make a difference.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+
+        {/* Discovery Call Section */}
+        <section id="discovery-call" className="py-24 bg-black/40">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-white mb-12 text-center">Schedule a Discovery Call</h2>
+            <div className="max-w-4xl mx-auto">
+              <iframe
+                src="https://calendly.com/mikael-fluentaleads/30min?hide_gdpr_banner=1"
+                width="100%"
+                height="700px"
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-black py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div className="space-y-4 mb-8 md:mb-0">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/...-Pk0hh9GcY5VTtKxtoV4DGx5bSlvY8S.png"
+                  alt="Fluentaleads Logo"
+                  width={30}
+                  height={30}
+                  className="w-8 h-8"
+                />
+                <span className="text-white font-bold">fluentaleads</span>
+              </div>
+              <div className="text-gray-400 space-y-1">
+                <p>mikael@fluentaleads.com</p>
+                <p>+358414890845</p>
+                <p>© 2025 fluentaleads</p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <Link 
+                href="https://www.instagram.com/mikaelhyl" 
+                target="_blank"
+                className="text-white hover:text-blue-400 transition-colors"
+              >
+                <Instagram className="w-6 h-6" />
+                <span className="sr-only">Instagram</span>
+              </Link>
+              <Link 
+                href="https://www.linkedin.com/in/mikael-hyle-53454b271/" 
+                target="_blank"
+                className="text-white hover:text-blue-400 transition-colors"
+              >
+                <Linkedin className="w-6 h-6" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+              <Link 
+                href="https://twitter.com/streakyzoo2324" 
+                target="_blank"
+                className="text-white hover:text-blue-400 transition-colors"
+              >
+                <X className="w-6 h-6" />
+                <span className="sr-only">X (formerly Twitter)</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
